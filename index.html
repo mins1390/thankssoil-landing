@@ -111,8 +111,9 @@
   /* ---------- VALUES STRIP ---------- */
   .values{background:var(--soil);color:var(--cream);padding:clamp(50px,7vw,80px) 0}
   .values .row{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center}
-  .value-card .icon{font-size:1.9rem;display:block;margin-bottom:10px}
-  .value-card h4{font-family:'Fraunces',serif;color:var(--gold);font-size:1.15rem;margin-bottom:6px}
+  .value-card{position:relative}
+  .value-card .vnum{display:inline-block;font-family:'Fraunces',serif;font-size:.95rem;letter-spacing:.18em;color:var(--gold);opacity:.8;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(224,168,75,.35)}
+  .value-card h4{font-family:'Fraunces',serif;color:var(--gold);font-size:1.15rem;margin-bottom:8px}
   .value-card p{color:rgba(245,237,232,.72);font-size:.92rem}
 
   /* ---------- JOURNEY / STEPS ---------- */
@@ -135,8 +136,8 @@
 
   /* ---------- GIFT BANNER ---------- */
   .gift{background:var(--leaf-d);color:var(--cream);text-align:center;padding:clamp(40px,6vw,64px) 24px}
-  .gift .emoji{font-size:2.4rem}
-  .gift h3{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);margin:10px 0 8px}
+  .gift .kicker{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .gift h3{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 10px}
   .gift p{max-width:48ch;margin:0 auto;color:rgba(245,237,232,.85);font-size:1.05rem}
 
   /* ---------- PARENTS BENEFIT ---------- */
@@ -145,10 +146,9 @@
   .parents .reverse{order:-1}
   .parents h2{font-size:clamp(2rem,4vw,2.9rem);margin:14px 0 20px}
   .parents p{color:var(--muted);font-size:1.06rem;margin-bottom:16px;max-width:52ch}
-  .benefit-list{margin-top:26px;display:grid;gap:16px}
-  .benefit-item{display:flex;gap:14px;align-items:flex-start}
-  .benefit-item .b-ic{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:rgba(200,132,59,.15);color:var(--accent);display:grid;place-items:center;font-size:1.25rem}
-  .benefit-item h4{font-family:'Manrope';font-weight:700;color:var(--soil);font-size:1.02rem;margin-bottom:2px}
+  .benefit-list{margin-top:30px;display:grid;gap:24px}
+  .benefit-item{padding-left:20px;border-left:2px solid var(--accent)}
+  .benefit-item h4{font-family:'Manrope';font-weight:700;color:var(--soil);font-size:1.05rem;margin-bottom:4px}
   .benefit-item p{margin:0;font-size:.96rem}
   .parents-img{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3}
   .parents-img img{width:100%;height:100%;object-fit:cover;display:block}
@@ -159,7 +159,6 @@
   .detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
   .detail-card{background:rgba(245,237,232,.06);border:1px solid rgba(245,237,232,.14);border-radius:18px;padding:26px 24px;transition:transform .25s,background .25s}
   .detail-card:hover{transform:translateY(-5px);background:rgba(245,237,232,.1)}
-  .detail-card .d-ic{font-size:1.5rem;margin-bottom:10px;display:block}
   .detail-card .d-label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700}
   .detail-card .d-val{font-family:'Fraunces',serif;font-size:1.35rem;color:#fff;margin-top:4px}
   .detail-card .d-note{font-size:.82rem;color:rgba(245,237,232,.6);margin-top:6px;font-style:italic}
@@ -221,12 +220,12 @@
 <!-- HERO -->
 <header class="hero">
   <div class="hero-inner reveal in">
-    <span class="eyebrow">⭐ Korea's #1 Trending Kids Program — Now at JW</span>
+    <span class="eyebrow">Korea's #1 Trending Kids Program — Now at JW</span>
     <h1>A Premium Sensory <em>Journey</em> Into the Wild</h1>
     <p class="lead">Far beyond a playroom. A 2-hour magical adventure where children touch real soil, farm, and cook — guided by nature itself.</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#book">📅 Book Your Journey</a>
-      <a class="btn btn-ghost" href="#journey">See the Adventure ↓</a>
+      <a class="btn btn-primary" href="#book">Book Your Journey</a>
+      <a class="btn btn-ghost" href="#journey">See the Adventure</a>
     </div>
   </div>
   <div class="scroll-hint">Scroll</div>
@@ -244,7 +243,7 @@
     </div>
     <div class="welcome-img reveal">
       <img src="img/welcome-soil.jpg" alt="Children in straw hats playing in real soil among ferns" loading="lazy" />
-      <span class="badge">🍃 Hands-on, every minute</span>
+      <span class="badge">Hands-on, every minute</span>
     </div>
   </div>
 </section>
@@ -252,10 +251,10 @@
 <!-- VALUES -->
 <section class="values">
   <div class="wrap row">
-    <div class="value-card reveal"><span class="icon">🌳</span><h4>Nature</h4><p>Living materials — soil, vegetables, trees — as the content itself.</p></div>
-    <div class="value-card reveal"><span class="icon">⏳</span><h4>Process</h4><p>Exploration, patience and achievement matter more than the result.</p></div>
-    <div class="value-card reveal"><span class="icon">✋</span><h4>Real</h4><p>Children choose, try and immerse — connecting with unprocessed life.</p></div>
-    <div class="value-card reveal"><span class="icon">🌈</span><h4>Diversity</h4><p>Cooking, sensory play and free play build an open, unbiased view.</p></div>
+    <div class="value-card reveal"><span class="vnum">01</span><h4>Nature</h4><p>Living materials — soil, vegetables, trees — as the content itself.</p></div>
+    <div class="value-card reveal"><span class="vnum">02</span><h4>Process</h4><p>Exploration, patience and achievement matter more than the result.</p></div>
+    <div class="value-card reveal"><span class="vnum">03</span><h4>Real</h4><p>Children choose, try and immerse — connecting with unprocessed life.</p></div>
+    <div class="value-card reveal"><span class="vnum">04</span><h4>Diversity</h4><p>Cooking, sensory play and free play build an open, unbiased view.</p></div>
   </div>
 </section>
 
@@ -298,7 +297,7 @@
 
 <!-- GIFT -->
 <section class="gift reveal">
-  <div class="emoji">🎁</div>
+  <span class="kicker">A Little Extra</span>
   <h3>A Special Surprise Gift</h3>
   <p>Every little explorer takes home a delightful surprise gift — handmade from real coconuts.</p>
 </section>
@@ -315,12 +314,10 @@
       <p>While your children are fully immersed in their adventure, you can enjoy peaceful, uninterrupted relaxation time at the resort.</p>
       <div class="benefit-list">
         <div class="benefit-item">
-          <span class="b-ic">🧖</span>
-          <div><h4>Uninterrupted relaxation</h4><p>Two full hours of resort calm while your child explores in safe, expert hands.</p></div>
+          <h4>Uninterrupted relaxation</h4><p>Two full hours of resort calm while your child explores in safe, expert hands.</p>
         </div>
         <div class="benefit-item">
-          <span class="b-ic">📸</span>
-          <div><h4>Professional snapshots, gifted</h4><p>A professional photographer captures high-quality moments of your child — gifted to you as a beautiful memory of your stay.</p></div>
+          <h4>Professional snapshots, gifted</h4><p>A professional photographer captures high-quality moments of your child — gifted to you as a beautiful memory of your stay.</p>
         </div>
       </div>
     </div>
@@ -332,11 +329,11 @@
   <div class="wrap">
     <h2>Program Details</h2>
     <div class="detail-grid">
-      <div class="detail-card reveal"><span class="d-ic">⏱️</span><div class="d-label">Duration</div><div class="d-val">2 Hours</div></div>
-      <div class="detail-card reveal"><span class="d-ic">🕙</span><div class="d-label">Hours</div><div class="d-val">10 AM – 5 PM</div><div class="d-note">Subject to change by resort circumstances</div></div>
-      <div class="detail-card reveal"><span class="d-ic">🧒</span><div class="d-label">Age</div><div class="d-val">4 – 10 yrs</div></div>
-      <div class="detail-card reveal"><span class="d-ic">📍</span><div class="d-label">Location</div><div class="d-val">By All-Day Dining</div><div class="d-note">Next to the Breakfast Venue</div></div>
-      <div class="detail-card reveal"><span class="d-ic">💬</span><div class="d-label">Inquiry</div><div class="d-val">Front Desk</div><div class="d-note">or ThanksSoil staff</div></div>
+      <div class="detail-card reveal"><div class="d-label">Duration</div><div class="d-val">2 Hours</div></div>
+      <div class="detail-card reveal"><div class="d-label">Hours</div><div class="d-val">10 AM – 5 PM</div><div class="d-note">Subject to change by resort circumstances</div></div>
+      <div class="detail-card reveal"><div class="d-label">Age</div><div class="d-val">4 – 10 yrs</div></div>
+      <div class="detail-card reveal"><div class="d-label">Location</div><div class="d-val">By All-Day Dining</div><div class="d-note">Next to the Breakfast Venue</div></div>
+      <div class="detail-card reveal"><div class="d-label">Inquiry</div><div class="d-val">Front Desk</div><div class="d-note">or ThanksSoil staff</div></div>
     </div>
   </div>
 </section>
@@ -365,10 +362,10 @@
 
 <!-- FINAL CTA -->
 <section class="final" id="book">
-  <span class="eyebrow">⏳ Limited Spots Available</span>
+  <span class="eyebrow">Limited Spots Available</span>
   <h2>Book Your Child's Journey Now</h2>
   <p>Spaces fill fast. Reserve your little explorer's place in the most talked-about kids program at the resort.</p>
-  <a class="btn btn-primary" href="#details">📅 Reserve at the Front Desk</a>
+  <a class="btn btn-primary" href="#details">Reserve at the Front Desk</a>
   <div class="note">Or ask any ThanksSoil staff member · Ages 4–10 · 2 hours of pure wonder</div>
 </section>
 
