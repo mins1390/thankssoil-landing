@@ -54,9 +54,12 @@
   .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--cream)}
   .nav.scrolled .brand{color:var(--soil)}
   .brand .dot{width:30px;height:30px;border-radius:50%;background:var(--leaf);display:grid;place-items:center;color:#fff;font-size:1rem;flex:0 0 auto}
-  .brand .logo-chip{width:46px;height:46px;border-radius:13px;background:var(--cream);display:grid;place-items:center;padding:6px;flex:0 0 auto;box-shadow:0 6px 16px -8px rgba(44,26,14,.55);transition:background .3s,box-shadow .3s}
-  .brand .logo-chip img{max-width:100%;max-height:100%;object-fit:contain;display:block}
-  .nav.scrolled .brand .logo-chip{background:transparent;box-shadow:none}
+  .brand .logo-mark{position:relative;width:44px;height:44px;flex:0 0 auto;display:block}
+  .brand .lm{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;transition:opacity .3s}
+  /* 기본(히어로 상단·어두운 배경): 밝은 로고 / 스크롤 시(크림 배경): 진한 로고 */
+  .brand .lm-dark{opacity:0}
+  .nav.scrolled .brand .lm-dark{opacity:1}
+  .nav.scrolled .brand .lm-light{opacity:0}
   .nav-cta{
     font-family:'Manrope';font-weight:700;font-size:.9rem;
     background:var(--accent);color:#fff;text-decoration:none;
@@ -211,7 +214,7 @@
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="brand"><span class="logo-chip"><img src="img/logo.png" alt="ThanksSoil logo" /></span> ThanksSoil</div>
+  <div class="brand"><span class="logo-mark"><img class="lm lm-light" src="img/logo-light.png" alt="ThanksSoil logo" /><img class="lm lm-dark" src="img/logo.png" alt="" aria-hidden="true" /></span> ThanksSoil</div>
   <a class="nav-cta" href="#book">Book Your Journey</a>
 </nav>
 
@@ -382,7 +385,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="brand"><span class="logo-chip"><img src="img/logo.png" alt="ThanksSoil logo" /></span> ThanksSoil</div>
+  <div class="brand"><span class="logo-mark"><img class="lm lm-light" src="img/logo-light.png" alt="ThanksSoil logo" /></span> ThanksSoil</div>
   <p>"The moment you open the door, you meet your child's own little forest."</p>
   <p style="margin-top:8px">Premium Kids Sensory Journey · Now at JW · <a href="#book">Book now</a></p>
 </footer>
