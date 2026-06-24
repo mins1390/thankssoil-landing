@@ -54,6 +54,9 @@
   .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--cream)}
   .nav.scrolled .brand{color:var(--soil)}
   .brand .dot{width:30px;height:30px;border-radius:50%;background:var(--leaf);display:grid;place-items:center;color:#fff;font-size:1rem;flex:0 0 auto}
+  .brand .logo-chip{width:46px;height:46px;border-radius:13px;background:var(--cream);display:grid;place-items:center;padding:6px;flex:0 0 auto;box-shadow:0 6px 16px -8px rgba(44,26,14,.55);transition:background .3s,box-shadow .3s}
+  .brand .logo-chip img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+  .nav.scrolled .brand .logo-chip{background:transparent;box-shadow:none}
   .nav-cta{
     font-family:'Manrope';font-weight:700;font-size:.9rem;
     background:var(--accent);color:#fff;text-decoration:none;
@@ -208,7 +211,7 @@
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="brand"><span class="dot">🌱</span> ThanksSoil</div>
+  <div class="brand"><span class="logo-chip"><img src="img/logo.png" alt="ThanksSoil logo" /></span> ThanksSoil</div>
   <a class="nav-cta" href="#book">Book Your Journey</a>
 </nav>
 
@@ -237,7 +240,7 @@
       <p>Here, children awaken their <strong>creativity and emotional intelligence</strong> by touching real soil and cooking with fresh, seasonal ingredients.</p>
     </div>
     <div class="welcome-img reveal">
-      <img src="img/juice-press.jpg" alt="A child pressing fresh juice during a hands-on sensory activity" loading="lazy" />
+      <img src="img/welcome-soil.jpg" alt="Children in straw hats playing in real soil among ferns" loading="lazy" />
       <span class="badge">🍃 Hands-on, every minute</span>
     </div>
   </div>
@@ -379,7 +382,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="brand"><span class="dot">🌱</span> ThanksSoil</div>
+  <div class="brand"><span class="logo-chip"><img src="img/logo.png" alt="ThanksSoil logo" /></span> ThanksSoil</div>
   <p>"The moment you open the door, you meet your child's own little forest."</p>
   <p style="margin-top:8px">Premium Kids Sensory Journey · Now at JW · <a href="#book">Book now</a></p>
 </footer>
