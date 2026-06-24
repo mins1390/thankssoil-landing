@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ThanksSoil — Premium Kids Sensory Journey</title>
+<meta name="description" content="Korea's #1 trending premium kids program, now at JW. A 2-hour magical nature journey where children connect with real soil, farm, and cook — while parents relax." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --soil:#2C1A0E;          /* deep earth */
+    --soil-2:#4A3120;
+    --cream:#F5EDE8;         /* brand cream */
+    --cream-2:#EDE2D8;
+    --leaf:#5B6E3A;          /* fresh leaf green */
+    --leaf-d:#445229;
+    --accent:#C8843B;        /* warm clay/amber */
+    --gold:#E0A84B;
+    --text:#3A2A1C;
+    --muted:#7B6A5C;
+    --radius:22px;
+    --shadow:0 18px 50px -18px rgba(44,26,14,.35);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,sans-serif;
+    color:var(--text);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;line-height:1.12;font-weight:600;color:var(--soil)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--leaf-d);background:rgba(91,110,58,.12);
+    padding:7px 14px;border-radius:999px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px clamp(20px,5vw,48px);
+    transition:background .3s, box-shadow .3s, padding .3s;
+  }
+  .nav.scrolled{background:rgba(245,237,232,.92);backdrop-filter:blur(10px);box-shadow:0 6px 22px -16px rgba(44,26,14,.5);padding-top:12px;padding-bottom:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--cream)}
+  .nav.scrolled .brand{color:var(--soil)}
+  .brand .dot{width:30px;height:30px;border-radius:50%;background:var(--leaf);display:grid;place-items:center;color:#fff;font-size:1rem;flex:0 0 auto}
+  .nav-cta{
+    font-family:'Manrope';font-weight:700;font-size:.9rem;
+    background:var(--accent);color:#fff;text-decoration:none;
+    padding:11px 20px;border-radius:999px;transition:transform .2s,background .2s;
+  }
+  .nav-cta:hover{background:var(--soil);transform:translateY(-2px)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100svh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(20,12,6,.55) 0%,rgba(20,12,6,.15) 35%,rgba(20,12,6,.78) 100%),
+      url('img/forest-explore.jpg') center 28%/cover no-repeat;
+    color:var(--cream);
+  }
+  .hero-inner{max-width:var(--maxw);margin:0 auto;width:100%;padding:0 24px 72px}
+  .hero .eyebrow{color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(4px)}
+  .hero h1{
+    color:#fff;font-size:clamp(2.6rem,7vw,5.2rem);font-weight:600;
+    margin:18px 0 18px;max-width:14ch;text-shadow:0 4px 30px rgba(0,0,0,.35);
+  }
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p.lead{font-size:clamp(1.05rem,2.2vw,1.35rem);max-width:46ch;color:#f3e9e0;font-weight:500}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;
+    text-decoration:none;padding:15px 28px;border-radius:999px;cursor:pointer;border:none;
+    transition:transform .2s,box-shadow .2s,background .2s;
+  }
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 14px 30px -12px rgba(200,132,59,.8)}
+  .btn-primary:hover{background:var(--gold);transform:translateY(-3px)}
+  .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.5);backdrop-filter:blur(4px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.28);transform:translateY(-3px)}
+  .scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;animation:float 2.4s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+  /* ---------- WELCOME ---------- */
+  .welcome{padding:clamp(70px,10vw,120px) 0;background:var(--cream)}
+  .welcome .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center}
+  .welcome h2{font-size:clamp(2rem,4vw,3rem);margin:14px 0 22px}
+  .quote-big{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.4rem,3vw,2rem);color:var(--leaf-d);line-height:1.3;border-left:4px solid var(--leaf);padding-left:20px;margin:0 0 26px}
+  .welcome p{color:var(--muted);font-size:1.05rem;margin-bottom:16px;max-width:52ch}
+  .welcome p strong{color:var(--soil)}
+  .welcome-img{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5}
+  .welcome-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+  .welcome-img:hover img{transform:scale(1.05)}
+  .welcome-img .badge{position:absolute;left:18px;bottom:18px;background:rgba(245,237,232,.94);color:var(--soil);padding:10px 16px;border-radius:14px;font-weight:700;font-size:.85rem;box-shadow:var(--shadow)}
+
+  /* ---------- VALUES STRIP ---------- */
+  .values{background:var(--soil);color:var(--cream);padding:clamp(50px,7vw,80px) 0}
+  .values .row{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center}
+  .value-card .icon{font-size:1.9rem;display:block;margin-bottom:10px}
+  .value-card h4{font-family:'Fraunces',serif;color:var(--gold);font-size:1.15rem;margin-bottom:6px}
+  .value-card p{color:rgba(245,237,232,.72);font-size:.92rem}
+
+  /* ---------- JOURNEY / STEPS ---------- */
+  .journey{padding:clamp(70px,10vw,120px) 0;background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%)}
+  .section-head{text-align:center;max-width:640px;margin:0 auto clamp(48px,7vw,72px)}
+  .section-head h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:14px 0 14px}
+  .section-head p{color:var(--muted);font-size:1.08rem}
+  .step{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center;margin-bottom:clamp(56px,8vw,96px)}
+  .step:last-child{margin-bottom:0}
+  .step.reverse .step-media{order:2}
+  .step-media{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/4}
+  .step-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+  .step-media:hover img{transform:scale(1.06)}
+  .step-num{position:absolute;top:18px;left:18px;width:54px;height:54px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;box-shadow:var(--shadow)}
+  .step-body .kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
+  .step-body h3{font-size:clamp(1.6rem,3vw,2.3rem);margin:8px 0 16px}
+  .step-body p{color:var(--muted);font-size:1.06rem;margin-bottom:14px}
+  .step-body ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .step-body li{background:rgba(91,110,58,.12);color:var(--leaf-d);font-weight:600;font-size:.86rem;padding:7px 14px;border-radius:999px}
+
+  /* ---------- GIFT BANNER ---------- */
+  .gift{background:var(--leaf-d);color:var(--cream);text-align:center;padding:clamp(40px,6vw,64px) 24px}
+  .gift .emoji{font-size:2.4rem}
+  .gift h3{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem);margin:10px 0 8px}
+  .gift p{max-width:48ch;margin:0 auto;color:rgba(245,237,232,.85);font-size:1.05rem}
+
+  /* ---------- PARENTS BENEFIT ---------- */
+  .parents{padding:clamp(70px,10vw,120px) 0;background:var(--cream)}
+  .parents .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,72px);align-items:center}
+  .parents .reverse{order:-1}
+  .parents h2{font-size:clamp(2rem,4vw,2.9rem);margin:14px 0 20px}
+  .parents p{color:var(--muted);font-size:1.06rem;margin-bottom:16px;max-width:52ch}
+  .benefit-list{margin-top:26px;display:grid;gap:16px}
+  .benefit-item{display:flex;gap:14px;align-items:flex-start}
+  .benefit-item .b-ic{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:rgba(200,132,59,.15);color:var(--accent);display:grid;place-items:center;font-size:1.25rem}
+  .benefit-item h4{font-family:'Manrope';font-weight:700;color:var(--soil);font-size:1.02rem;margin-bottom:2px}
+  .benefit-item p{margin:0;font-size:.96rem}
+  .parents-img{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3}
+  .parents-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ---------- DETAILS ---------- */
+  .details{padding:clamp(60px,9vw,110px) 0;background:var(--soil);color:var(--cream)}
+  .details h2{color:#fff;text-align:center;font-size:clamp(2rem,4.5vw,3rem);margin-bottom:clamp(40px,6vw,60px)}
+  .detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+  .detail-card{background:rgba(245,237,232,.06);border:1px solid rgba(245,237,232,.14);border-radius:18px;padding:26px 24px;transition:transform .25s,background .25s}
+  .detail-card:hover{transform:translateY(-5px);background:rgba(245,237,232,.1)}
+  .detail-card .d-ic{font-size:1.5rem;margin-bottom:10px;display:block}
+  .detail-card .d-label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .detail-card .d-val{font-family:'Fraunces',serif;font-size:1.35rem;color:#fff;margin-top:4px}
+  .detail-card .d-note{font-size:.82rem;color:rgba(245,237,232,.6);margin-top:6px;font-style:italic}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi{padding:clamp(70px,10vw,120px) 0;background:var(--cream-2)}
+  .testi .cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+  .t-card{background:#fff;border-radius:var(--radius);padding:34px 32px;box-shadow:var(--shadow);position:relative}
+  .t-card .stars{color:var(--gold);font-size:1.15rem;letter-spacing:3px;margin-bottom:14px}
+  .t-card blockquote{font-family:'Fraunces',serif;font-style:italic;font-size:1.18rem;color:var(--soil);line-height:1.45}
+  .t-card .who{margin-top:18px;font-weight:700;color:var(--muted);font-size:.9rem}
+  .t-card::before{content:"\201C";position:absolute;top:6px;right:24px;font-family:'Fraunces',serif;font-size:5rem;color:rgba(200,132,59,.16);line-height:1}
+
+  /* ---------- FINAL CTA ---------- */
+  .final{
+    position:relative;text-align:center;color:#fff;padding:clamp(80px,12vw,140px) 24px;
+    background:linear-gradient(180deg,rgba(44,26,14,.78),rgba(44,26,14,.86)),url('img/cooking-class.jpg') center 30%/cover no-repeat fixed;
+  }
+  .final .eyebrow{background:rgba(255,255,255,.18);color:#fff}
+  .final h2{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);margin:18px auto 16px;max-width:18ch}
+  .final p{max-width:46ch;margin:0 auto 32px;color:#f3e9e0;font-size:1.12rem}
+  .final .note{font-size:.85rem;color:rgba(255,255,255,.7);margin-top:18px}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--soil-2);color:rgba(245,237,232,.7);text-align:center;padding:36px 24px;font-size:.88rem}
+  footer .brand{justify-content:center;color:var(--cream);margin-bottom:10px}
+  footer a{color:var(--gold);text-decoration:none}
+
+  /* ---------- REVEAL ANIM ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    .welcome .grid,.step,.parents .grid{grid-template-columns:1fr}
+    .step.reverse .step-media{order:0}
+    .parents .reverse{order:0}
+    .welcome-img{aspect-ratio:16/11;order:-1}
+    .values .row{grid-template-columns:1fr 1fr;gap:32px 20px}
+    .testi .cards{grid-template-columns:1fr}
+    .final{background-attachment:scroll}
+    .nav-cta{display:none}
+  }
+  @media(max-width:480px){
+    .hero-actions{flex-direction:column;align-items:stretch}
+    .btn{justify-content:center}
+  }
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.scroll-hint{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="brand"><span class="dot">🌱</span> ThanksSoil</div>
+  <a class="nav-cta" href="#book">Book Your Journey</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner reveal in">
+    <span class="eyebrow">⭐ Korea's #1 Trending Kids Program — Now at JW</span>
+    <h1>A Premium Sensory <em>Journey</em> Into the Wild</h1>
+    <p class="lead">Far beyond a playroom. A 2-hour magical adventure where children touch real soil, farm, and cook — guided by nature itself.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#book">📅 Book Your Journey</a>
+      <a class="btn btn-ghost" href="#journey">See the Adventure ↓</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<!-- WELCOME -->
+<section class="welcome">
+  <div class="wrap grid">
+    <div class="reveal">
+      <span class="eyebrow">Welcome to ThanksSoil</span>
+      <h2>Always show children<br>what is real.</h2>
+      <p class="quote-big">"We believe in the value of the process — not just the final result."</p>
+      <p>ThanksSoil is Korea's leading premium kids program, highly sought after by discerning parents. It is a <strong>high-end educational journey</strong> where children connect directly with nature, stepping away from abstract concepts to experience the world through their own hands.</p>
+      <p>Here, children awaken their <strong>creativity and emotional intelligence</strong> by touching real soil and cooking with fresh, seasonal ingredients.</p>
+    </div>
+    <div class="welcome-img reveal">
+      <img src="img/juice-press.jpg" alt="A child pressing fresh juice during a hands-on sensory activity" loading="lazy" />
+      <span class="badge">🍃 Hands-on, every minute</span>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="wrap row">
+    <div class="value-card reveal"><span class="icon">🌳</span><h4>Nature</h4><p>Living materials — soil, vegetables, trees — as the content itself.</p></div>
+    <div class="value-card reveal"><span class="icon">⏳</span><h4>Process</h4><p>Exploration, patience and achievement matter more than the result.</p></div>
+    <div class="value-card reveal"><span class="icon">✋</span><h4>Real</h4><p>Children choose, try and immerse — connecting with unprocessed life.</p></div>
+    <div class="value-card reveal"><span class="icon">🌈</span><h4>Diversity</h4><p>Cooking, sensory play and free play build an open, unbiased view.</p></div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">A 2-Hour Magical Adventure</span>
+      <h2>What We Do</h2>
+      <p>Hey kids! Are you ready to become brave explorers? Here is the exciting journey waiting for you.</p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step reveal">
+      <div class="step-media">
+        <img src="img/soil-room.jpg" alt="A child digging in real soil inside the Secret Soil Room" loading="lazy" />
+        <span class="step-num">1</span>
+      </div>
+      <div class="step-body">
+        <span class="kicker">Soil &amp; Farming Experience</span>
+        <h3>The Secret Soil Room</h3>
+        <p>Step into the magical secret forest! Children work together to search for hidden keys, discover tropical coconuts, pitch their own camping tents, and find cozy bird nests tucked among the trees.</p>
+        <ul>
+          <li>🔑 Hidden key hunt</li>
+          <li>🥥 Tropical coconuts</li>
+          <li>⛺ Pitch a tent</li>
+          <li>🪺 Find bird nests</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step reverse reveal">
+      <div class="step-media">
+        <img src="img/cooking-class.jpg" alt="Two children excitedly raising hands in the Magic Cooking Room" loading="lazy" />
+        <span class="step-num">2</span>
+      </div>
+      <div class="step-body">
+        <span class="kicker">From Farm to Table Cooking Class</span>
+        <h3>The Magic Cooking Room</h3>
+        <p>Use the secret keys you found to create delicious chocolates! Children also bake their own crispy bread pizzas and craft a special, famous Vietnamese <strong>Bird's Nest Mango Dessert</strong>.</p>
+        <ul>
+          <li>🍫 Make chocolates</li>
+          <li>🍕 Crispy bread pizza</li>
+          <li>🥭 Bird's Nest Mango Dessert</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT -->
+<section class="gift reveal">
+  <div class="emoji">🎁</div>
+  <h3>A Special Surprise Gift</h3>
+  <p>Every little explorer takes home a delightful surprise gift — handmade from real coconuts.</p>
+</section>
+
+<!-- PARENTS -->
+<section class="parents">
+  <div class="wrap grid">
+    <div class="parents-img reverse reveal">
+      <img src="img/forest-explore.jpg" alt="A child exploring a lush indoor forest" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Parents' Relax &amp; Snapshot Benefit</span>
+      <h2>Your two hours,<br>completely yours.</h2>
+      <p>While your children are fully immersed in their adventure, you can enjoy peaceful, uninterrupted relaxation time at the resort.</p>
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <span class="b-ic">🧖</span>
+          <div><h4>Uninterrupted relaxation</h4><p>Two full hours of resort calm while your child explores in safe, expert hands.</p></div>
+        </div>
+        <div class="benefit-item">
+          <span class="b-ic">📸</span>
+          <div><h4>Professional snapshots, gifted</h4><p>A professional photographer captures high-quality moments of your child — gifted to you as a beautiful memory of your stay.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="details" id="details">
+  <div class="wrap">
+    <h2>Program Details</h2>
+    <div class="detail-grid">
+      <div class="detail-card reveal"><span class="d-ic">⏱️</span><div class="d-label">Duration</div><div class="d-val">2 Hours</div></div>
+      <div class="detail-card reveal"><span class="d-ic">🕙</span><div class="d-label">Hours</div><div class="d-val">10 AM – 5 PM</div><div class="d-note">Subject to change by resort circumstances</div></div>
+      <div class="detail-card reveal"><span class="d-ic">🧒</span><div class="d-label">Age</div><div class="d-val">4 – 10 yrs</div></div>
+      <div class="detail-card reveal"><span class="d-ic">📍</span><div class="d-label">Location</div><div class="d-val">By All-Day Dining</div><div class="d-note">Next to the Breakfast Venue</div></div>
+      <div class="detail-card reveal"><span class="d-ic">💬</span><div class="d-label">Inquiry</div><div class="d-val">Front Desk</div><div class="d-note">or ThanksSoil staff</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What Parents Say</span>
+      <h2>Loved by discerning parents</h2>
+    </div>
+    <div class="cards">
+      <div class="t-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"It is worth every penny. An invaluable time for my child's emotional development and a truly premium experience."</blockquote>
+        <div class="who">— Parent guest, verified stay</div>
+      </div>
+      <div class="t-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Out of all the activities at the resort, this was my child's absolute favorite. Highly recommended for parents looking for high-quality content."</blockquote>
+        <div class="who">— Parent guest, verified stay</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="book">
+  <span class="eyebrow">⏳ Limited Spots Available</span>
+  <h2>Book Your Child's Journey Now</h2>
+  <p>Spaces fill fast. Reserve your little explorer's place in the most talked-about kids program at the resort.</p>
+  <a class="btn btn-primary" href="#details">📅 Reserve at the Front Desk</a>
+  <div class="note">Or ask any ThanksSoil staff member · Ages 4–10 · 2 hours of pure wonder</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand"><span class="dot">🌱</span> ThanksSoil</div>
+  <p>"The moment you open the door, you meet your child's own little forest."</p>
+  <p style="margin-top:8px">Premium Kids Sensory Journey · Now at JW · <a href="#book">Book now</a></p>
+</footer>
+
+<script>
+  // Sticky nav state
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Reveal on scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
